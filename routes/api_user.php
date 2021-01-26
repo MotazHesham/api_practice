@@ -9,4 +9,6 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
+Route::post('login','UserController@login');
 
+Route::post('add/comment','CommentController@add')->middleware('auth:sanctum');
