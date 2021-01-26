@@ -25,7 +25,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token','email_verified_at','created_at','updated_at','pivot'
     ];
 
     /**
@@ -41,5 +41,9 @@ class User extends Authenticatable
     public function posts()
     {
         return $this->belongsToMany(Post::class,'comments')->withpivot('comment');
+    }
+
+    public function fullName() {
+        return $this->first_name  . ' ' . $this->last_name;
     }
 }
