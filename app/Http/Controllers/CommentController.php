@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Comment;
 use Illuminate\Http\Request;
-use App\Http\Resources\PostResource;
+use App\Http\Resources\CommentResourse;
 
 class CommentController extends Controller
 {
@@ -15,5 +16,11 @@ class CommentController extends Controller
         $posts = Post::paginate(10);
         //$post->users()->attach(auth()->user()->id,['comment' => $request->comment]);
         return response()->json($posts);
+    }
+
+    public function index(){
+        $comments = Comment::all();
+
+        return response()->json(CommentResourse::collection($comments));
     }
 }

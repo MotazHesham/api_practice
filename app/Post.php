@@ -11,9 +11,9 @@ class Post extends Model
     ];
 
     //each post has many comments belongs to many users
-    public function users()
+    public function comments()
     {
-        return $this->belongsToMany(User::class,'comments')->withpivot('comment');
+        return $this->hasMany(Comment::class,'post_id');
     }
 
     //each post belongs to one author

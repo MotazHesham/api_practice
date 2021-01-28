@@ -39,8 +39,8 @@ class User extends Authenticatable
     ];
 
     //any user have many comments in many posts
-    public function posts()
+    public function comments()
     {
-        return $this->belongsToMany(Post::class,'comments')->withpivot('comment');
+        return $this->hasMany(Comment::class,'user_id');
     }
 }

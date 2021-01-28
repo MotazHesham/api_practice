@@ -52,6 +52,11 @@ return [
             'provider' => 'authors',
             'hash' => false,
         ],
+
+        'author' => [
+            'driver' => 'session',
+            'provider' => 'authors',
+        ],
     ],
 
     /*
