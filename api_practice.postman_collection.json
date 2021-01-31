@@ -1,0 +1,506 @@
+{
+	"info": {
+		"_postman_id": "7447a38b-5f5b-478c-86bc-cd2226d370ec",
+		"name": "api_practice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Author",
+			"item": [
+				{
+					"name": "Authentication",
+					"item": [
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "ahmed@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}author/login",
+									"host": [
+										"{{url}}author"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "mohamed",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "ahmed",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "ahmed@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}author/register",
+									"host": [
+										"{{url}}author"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Post",
+					"item": [
+						{
+							"name": "posts_index",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}author/posts",
+									"host": [
+										"{{url}}author"
+									],
+									"path": [
+										"posts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add_post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "dddd",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "kkkkk",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/D:/photo/Wallpaper PC/alexandra-daddario-2-1920x1080.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}author/posts/add",
+									"host": [
+										"{{url}}author"
+									],
+									"path": [
+										"posts",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update_post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id",
+											"value": "27",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "mmmm",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "33333",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/D:/photo/Wallpaper PC/assassins-creed-hd-wallpaper.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}author/posts/update",
+									"host": [
+										"{{url}}author"
+									],
+									"path": [
+										"posts",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete_post",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}author/posts/delete/27",
+									"host": [
+										"{{url}}author"
+									],
+									"path": [
+										"posts",
+										"delete",
+										"27"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "2|niqIR7ZBQW5MjAdlvJEKFCeF2UbfuHaFzTiyCxyn",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Authentication",
+					"item": [
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "ahmed2@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}user/login",
+									"host": [
+										"{{url}}user"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "mohamed",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "ahmed",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "ahmed2@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}user/register",
+									"host": [
+										"{{url}}user"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "comments",
+					"item": [
+						{
+							"name": "comments_index",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}user/comments",
+									"host": [
+										"{{url}}user"
+									],
+									"path": [
+										"comments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add_comment",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "comment",
+											"value": "text",
+											"type": "text"
+										},
+										{
+											"key": "post_id",
+											"value": "5",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}user/comments/add",
+									"host": [
+										"{{url}}user"
+									],
+									"path": [
+										"comments",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update_comment",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id",
+											"value": "126",
+											"type": "text"
+										},
+										{
+											"key": "comment",
+											"value": "text2",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}user/comments/update",
+									"host": [
+										"{{url}}user"
+									],
+									"path": [
+										"comments",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete_comment",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}user/comments/delete/126",
+									"host": [
+										"{{url}}user"
+									],
+									"path": [
+										"comments",
+										"delete",
+										"126"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "3|iwx2C43US2VrnTTnmay5EKQR77eO0jAIpZugeGZe",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:8000/api/"
+		}
+	]
+}

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\comment;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class UserResourse extends JsonResource
+class AuthorResourse extends JsonResource
 {
     /**
      * Transform the resource into an array.

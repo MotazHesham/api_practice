@@ -10,21 +10,53 @@ use Auth;
 class UserController extends Controller
 {
     public function login(Request $request){
-        $rules = [
-            'email' => 'required|email',
-            'password' => 'required|min:6|max:20'
+        if(!Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password])){
+            return response()->json([
+                'success' => false,
+                'status' => 200
+            ]);
+        }
+
+        $user = Auth::guard('web')->user();
+
+        $token = $user->createToken('user');
+
+        return response()->json([
+            'author_token' => $token->plainTextToken,
+        ]);
+    }
+
+    public function register(Request $request)
+    {
+        $rules=[
+
+            'first_name' => 'required|max: 255',
+            'last_name' => 'required|max: 255',
+            'email' => 'required|email|unique:authors,email',
+            'password' => 'required|min:6|max:20',
         ];
 
         $validator =Validator::make($request->all(),$rules);
 
         if($validator->fails()){
             return response()->json($validator->errors());
-        } 
-        if (auth()->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
-            $token = auth()->user()->createToken('User');
-            return response()->json($token->plainTextToken);
-        } else {
-            return response()->json(__('invalid username or password'));
-        } 
+        }
+
+
+        $author = User::create([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ]);
+
+
+        $authToken = $author->createToken('auth-token')->plainTextToken;
+
+        return response()->json([
+            'author_token' => $authToken,
+        ]);
+
     }
+
 }

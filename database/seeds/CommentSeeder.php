@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Comment;
 
 class CommentSeeder extends Seeder
 {
@@ -15,7 +16,11 @@ class CommentSeeder extends Seeder
         $posts = App\Post::all();
         foreach($posts as $post){
             for ($i = 1 ; $i <= 5 ; $i++) {
-                $post->users()->attach(rand(1,10),['comment' => $faker->realText($maxNbChars = 200, $indexSize = 2)]);
+                $comment = new Comment;
+                $comment->user_id = rand(1,10);
+                $comment->post_id = $post->id;
+                $comment->comment = $faker->realText($maxNbChars = 200, $indexSize = 2);
+                $comment->save();
             }
         }
     }

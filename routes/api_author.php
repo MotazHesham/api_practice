@@ -11,7 +11,12 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::post('author/login','AuthorController@login');
+Route::post('author/register','AuthorController@register');
 
+Route::group(['middleware'=>'auth:sanctum','prefix'=>'author/posts'],function(){
+    Route::get('/', 'PostController@index');
+    Route::post('/add', 'PostController@add');
+    Route::post('/update', 'PostController@update');
+    Route::get('/delete/{id}', 'PostController@delete');
 
-Route::get('author/post/index', 'PostController@index')->middleware('auth:sanctum');
-Route::get('author/comment/index', 'CommentController@index')->middleware('auth:sanctum');
+});
