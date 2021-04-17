@@ -20,7 +20,6 @@ class PostController extends Controller
     public function index()
     {
 
-        //$posts = Post::select('id','title','description','image')->paginate(PAGINATION_COUNT);
         $groups  = Post::with(['comments', 'comments.user'])->paginate(PAGINATION_COUNT);
         return  response() -> json($groups);
 
